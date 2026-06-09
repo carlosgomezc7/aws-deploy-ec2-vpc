@@ -36,5 +36,3 @@ El proyecto sigue una estructura profesional y escalable:
 *   **Arquitectura CSS (Sass):** Se utilizó el preprocesador Sass con una metodología modular (similares a SMACSS), permitiendo que el mantenimiento de colores y tipografías sea centralizado mediante variables globales.
 *   **Diseño Responsivo:** El sitio está optimizado para dispositivos móviles y escritorio mediante Media Queries integrados en la arquitectura de estilos.
 
----
-*Documentación preparada para el entregable de diseño y organización de sitios web estáticos.*
