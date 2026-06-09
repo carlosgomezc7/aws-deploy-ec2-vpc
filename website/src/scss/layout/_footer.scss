@@ -1,4 +1,18 @@
+/* ========================================================================
+   PIE DE PÁGINA (_FOOTER.SCSS)
+   ========================================================================
+   Estilos para el pie de página del sitio
+   
+   Contenido:
+   - Contenedor footer (.site-footer, .site-footer-inner)
+   - Marca del footer (.footer-brand)
+   - Enlaces del footer (.footer-links, .footer-social-links)
+   - Copyright (.footer-copyright)
+======================================================================== */
+
+/* Pie de página del sitio */
 .site-footer {
+    /* Tamaño de fuente adaptativo */
     @include font-size(8, mobile, true, true, true);
     @if ( get-font-size(8, desktop) != get-font-size(8, mobile) ) {
         @include media( '>medium' ) {
@@ -6,15 +20,21 @@
         }
     }
 
+    /* Estilos personalizados para enlaces */
     a {
         @include anchor-aspect(footer);
     }
 }
 
+/* Contenedor interno del footer */
 .site-footer-inner {
-    position: relative; /* To display all elements above the background color */
+    /* Permite mostrar elementos encima de los fondos */
+    position: relative;
+    /* Layout flexible con múltiples elementos */
     display: flex;
+    /* Permite que los elementos se envuelvan a la siguiente línea */
     flex-wrap: wrap;
+    /* Espaciado vertical */
     padding-top: 48px;
     padding-bottom: 48px;
 }

@@ -1,15 +1,30 @@
+/* ========================================================================
+   ESTILOS BASE (_BASE.SCSS)
+   ========================================================================
+   Estilos fundamentales para elementos HTML principales del sitio
+   
+   Contenido:
+   - Configuración de box-sizing para todos los elementos
+   - Estilos del body (fondo, suavizado de fuentes)
+   - Estilos para listas, líneas divisorias y definiciones
+======================================================================== */
+
 html {
+	/* Box-sizing border-box para cálculos más intuitivos de ancho */
 	box-sizing: border-box;
 }
 
 *,
 *:before,
-*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+*:after { 
+	/* Hereda box-sizing a todos los elementos para comportamiento consistente */
 	box-sizing: inherit;
 }
 
 body {
-	background: color(bg, 2); /* Fallback for when there is no custom background color defined. */
+	/* Color de fondo del sitio (fallback si no hay color personalizado) */
+	background: color(bg, 2);
+	/* Suavizado de fuentes en navegadores Mozilla y Webkit */
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 }

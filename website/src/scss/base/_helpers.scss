@@ -1,10 +1,28 @@
+/* ========================================================================
+   CLASES AUXILIARES (_HELPERS.SCSS)
+   ========================================================================
+   Utilidades y clases helper para espaciado, alineación y accesibilidad
+   
+   Contenido:
+   - Contenedores responsivos (.container, .container-sm)
+   - Clases de alineación de texto (.text-left, .text-center, .text-right)
+   - Clases de margen y padding (.m-0, .mt-0, .mb-0, .pt-0, .pb-0, etc)
+   - Clases de utilidad (.list-reset, .text-primary, etc)
+   - Accesibilidad (.screen-reader-text para lectores de pantalla)
+======================================================================== */
+
+/* Contenedores responsivos */
 .container,
 .container-sm {
+	/* Ancho completo en mobile */
 	width: 100%;
+	/* Centrado horizontal */
 	margin: 0 auto;
+	/* Relleno adaptativo según pantalla */
 	padding-left: get-content-padding(mobile);
 	padding-right: get-content-padding(mobile);
 
+	/* En tablets y desktop: más relleno */
 	@include media( '>small' ) {
 		padding-left: get-content-padding(desktop);
 		padding-right: get-content-padding(desktop);

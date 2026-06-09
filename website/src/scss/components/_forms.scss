@@ -1,16 +1,34 @@
+/* ========================================================================
+   FORMULARIOS (_FORMS.SCSS)
+   ========================================================================
+   Estilos para campos de entrada de formularios (input, textarea)
+   
+   Contenido:
+   - Campos de texto (.input, .textarea)
+   - Estados: normal, hover, focus, disabled
+   - Placeholders y estilos de navegadores específicos
+======================================================================== */
+
+/* Estilos base para inputs y textareas */
 .input,
 .textarea {
+    /* Fondo blanco para contraste legible */
     background-color: color(typography, 1);
+    /* Borde gris oscuro */
     border-width: 1px;
     border-style: solid;
     border-color: color(bg, 3);
-	border-radius: 2px;
+	/* Esquinas ligeramente redondeadas */
+	border-radius: 4px;
+    /* Color de texto principal */
     color: color(typography, 2);
+    /* Ancho completo del contenedor */
     max-width: 100%;
     width: 100%;
 
+    /* Texto placeholder (texto de ayuda) */
     &::placeholder {
-        color: color(typography, 3);
+        color: color(typography, 3); /* Gris más claro */
     }
 
     &::-ms-input-placeholder {

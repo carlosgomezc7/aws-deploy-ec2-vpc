@@ -1,6 +1,30 @@
-// Font-size + Line-height + Kerning
-// Usage: @include font-size(1, mobile)
-// Add more true/false args to control what to output: font-size, line-height, kerning
+/* ========================================================================
+   MIXINS (_MIXINS.SCSS)
+   ========================================================================
+   Definiciones reutilizables de estilos SCSS para componentes comunes
+   
+   Contenido:
+   - Mixins de tipografía (font-size, font-family, font-weight)
+   - Mixins de decoración (sombras, divisores, enlaces)
+   - Mixins de medios queries (media)
+======================================================================== */
+
+/* ========================================================================
+   TIPOGRAFÍA
+======================================================================== */
+
+/**
+ * Mixin: font-size
+ * Aplica tamaño de fuente, alto de línea y espaciado de letra
+ * 
+ * Uso: @include font-size(1, mobile, true, true, true)
+ * Parámetros:
+ * - $size: nivel de escala (1-9)
+ * - $elem: elemento (mobile/desktop)
+ * - $font-size: incluir tamaño (default: true)
+ * - $line-height: incluir alto de línea (default: false)
+ * - $kerning: incluir espaciado de letra (default: false)
+ */
 @mixin font-size($size, $elem, $font-size: true, $line-height: false, $kerning: false, $adjust-font-size: 0) {
 	@if not map-has-key(map-get($font__scale, $elem), $size) {
 		@warn "'#{$size}' key does not exist in array!";
@@ -16,19 +40,38 @@
 	}
 }
 
-// Font Family
+/**
+ * Mixin: font-family
+ * Aplica la familia de fuente configurada
+ * 
+ * Uso: @include font-family(base)
+ */
 @mixin font-family($elem) {
 	font-family: unquote(get-font-family($elem));
 }
 
-// Font Weight
+/**
+ * Mixin: font-weight
+ * Aplica el peso de fuente configurado
+ * 
+ * Uso: @include font-weight(semibold)
+ */
 @mixin font-weight($elem) {
 	font-weight: get-font-weight($elem);
 }
 
-// Anchor aspect
+/**
+ * Mixin: anchor-aspect
+ * Aplica estilos personalizados a enlaces según su contexto
+ * 
+ * Uso: @include anchor-aspect(main) | (header) | (footer)
+ * Tipos:
+ * - main: enlaces en contenido principal (subrayados)
+ * - header: enlaces en navegación (mayúsculas, sin subrayar)
+ * - footer: enlaces en pie de página
+ */
 @mixin anchor-aspect($type: 'main') {
-	@if ($type == 'main') { // Base
+	@if ($type == 'main') { /* Estilo base para enlaces en contenido */
 		color: color(typography, 2);
 		text-decoration: underline;
 
@@ -37,7 +80,7 @@
 			outline: 0;
 			text-decoration: none;
 		}
-	} @else if ($type == 'header') {
+	} @else if ($type == 'header') { /* Estilo para navegación superior */
 		color: color(typography, 2);
 		text-transform: uppercase;
 		text-decoration: none;
@@ -45,7 +88,7 @@
 		&:hover,
 		&:active {
 		}
-	} @else if ($type == 'footer') {
+	} @else if ($type == 'footer') { /* Estilo para pie de página */
 		color: color(typography, 2);
 		text-decoration: none;
 
@@ -56,24 +99,50 @@
 	}
 }
 
+/* ========================================================================
+   SOMBRAS
+======================================================================== */
+
+/**
+ * Mixin: shadow
+ * Aplica sombra profunda a elementos
+ */
 @mixin shadow {
 	box-shadow: 0 24px 48px rgba(color(bg, 1), .24);
 	mix-blend-mode: multiply;
 }
 
+/**
+ * Mixin: shadow-sm
+ * Aplica sombra pequeña a elementos
+ */
 @mixin shadow-sm {
 	box-shadow: 0 16px 24px rgba(color(bg, 1), .24);
 	mix-blend-mode: multiply;
 }
 
+/* ========================================================================
+   DIVISORES Y LÍNEAS
+======================================================================== */
+
+/**
+ * Mixin: divider-mix
+ * Crea una línea divisoria horizontal
+ */
 @mixin divider-mix {
 	display: block;
 	height: 1px;
 	background: color(bg, 3);
 }
 
+/**
+ * Mixin: divider
+ * Aplica línea divisoria antes o después de elemento
+ * 
+ * Uso: @include divider(before) | (after) | ()
+ */
 @mixin divider($type: false) {
-	@if ( $type == 'before' ) {
+	@if ( $type == 'before' ) { /* Línea encima del elemento */
 		position: relative;
 
 		&::before {
@@ -84,7 +153,7 @@
 			width: 100%;
 			@include divider-mix;
 		}
-	} @else if ($type == 'after') {
+	} @else if ($type == 'after') { /* Línea debajo del elemento */
 		position: relative;
 
 		&::after {
@@ -95,7 +164,7 @@
 			width: 100%;
 			@include divider-mix;
 		}
-	} @else {
+	} @else { /* Solo la línea sin posicionamiento */
 		@include divider-mix;
 	}
 }

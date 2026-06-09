@@ -1,11 +1,30 @@
+/* ========================================================================
+   ENCABEZADO (_HEADER.SCSS)
+   ========================================================================
+   Estilos para la navegación principal y encabezado del sitio
+   
+   Contenido:
+   - Contenedor del header (.site-header)
+   - Estructura interna (.site-header-inner)
+   - Enlaces de navegación (.header-links)
+   - Efectos visuales (fondo gradiente, skew)
+======================================================================== */
+
+/* Encabezado principal del sitio */
 .site-header {
+    /* Espacio vertical alrededor del header */
     padding: 24px 0;
 }
 
+/* Contenedor interno del header */
 .site-header-inner {
-    position: relative; /* To display all elements above the background color */
+    /* Permite mostrar elementos encima del fondo */
+    position: relative;
+    /* Disposición horizontal flexible */
     display: flex;
+    /* Espacio entre logo y nav */
     justify-content: space-between;
+    /* Alineación vertical central */
     align-items: center;
 }
 

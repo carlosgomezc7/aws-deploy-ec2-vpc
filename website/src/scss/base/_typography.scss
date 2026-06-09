@@ -1,4 +1,16 @@
+/* ========================================================================
+   TIPOGRAFÍA (_TYPOGRAPHY.SCSS)
+   ========================================================================
+   Estilos tipográficos para encabezados, párrafos y elementos de texto
+   
+   Contenido:
+   - Tamaños de fuente adaptables (móvil/desktop)
+   - Estilos de encabezados (h1-h6) y párrafos
+   - Estilos de enlaces
+======================================================================== */
+
 html {
+	/* Tamaño de fuente base responsivo */
 	@include font-size(5, mobile, true, true);
 	@if ( get-font-size(5, desktop) != get-font-size(5, mobile) ) {
 		@include media( '>medium' ) {
@@ -8,7 +20,9 @@ html {
 }
 
 body {
+	/* Color de texto principal (gris claro) */
 	color: color(typography, 2);
+	/* Tamaño base de fuente */
 	font-size: 1rem;
 }
 

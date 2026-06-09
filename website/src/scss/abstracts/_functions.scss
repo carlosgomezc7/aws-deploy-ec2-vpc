@@ -1,55 +1,97 @@
-// --------------------------------------------------------------------
-// Retrieve Font Size -------------------------------------------------
-// Used in _mixins.scss [@mixin font-size] ----------------------------
-// --------------------------------------------------------------------
+/* ========================================================================
+   FUNCIONES SCSS (_FUNCTIONS.SCSS)
+   ========================================================================
+   Funciones reutilizables para acceder a valores configurados en variables
+   
+   Contenido:
+   - Funciones de tipografía (tamaño, alto de línea, espaciado, familia)
+   - Funciones de peso de fuente
+   - Funciones de contenedor y padding
+======================================================================== */
+
+/* ========================================================================
+   FUNCIONES DE TIPOGRAFÍA
+======================================================================== */
+
+/**
+ * Función: get-font-size
+ * Obtiene el tamaño de fuente de la escala configurada
+ * 
+ * Uso: get-font-size(1, mobile)
+ * Parámetros:
+ * - $size: nivel de escala (1-9)
+ * - $elem: elemento (mobile/desktop)
+ */
 @function get-font-size($size, $elem) {
 	@return nth(map-get(map-get($font__scale, $elem), $size), 1);
 }
 
-// --------------------------------------------------------------------
-// Retrieve Line Height -----------------------------------------------
-// Used in _mixins.scss [@mixin font-size] ----------------------------
-// --------------------------------------------------------------------
+/**
+ * Función: get-line-height
+ * Obtiene el alto de línea de la escala configurada
+ * 
+ * Uso: get-line-height(1, mobile)
+ */
 @function get-line-height($size, $elem) {
 	@return nth(map-get(map-get($font__scale, $elem), $size), 2);
 }
 
-// --------------------------------------------------------------------
-// Retrieve Kerning ---------------------------------------------------
-// Used in _mixins.scss [@mixin font-size] ----------------------------
-// --------------------------------------------------------------------
+/**
+ * Función: get-kerning
+ * Obtiene el espaciado de letra (kerning) de la escala configurada
+ * 
+ * Uso: get-kerning(1, mobile)
+ */
 @function get-kerning($size, $elem) {
 	@return nth(map-get(map-get($font__scale, $elem), $size), 3);
 }
 
-// --------------------------------------------------------------------
-// Retrieve Font Family -----------------------------------------------
-// Used in _mixins.scss [@mixin font-family] --------------------------
-// --------------------------------------------------------------------
+/**
+ * Función: get-font-family
+ * Obtiene la familia de fuente configurada
+ * 
+ * Uso: get-font-family(base)
+ */
 @function get-font-family($elem) {
 	@return map-get($font__family, $elem);
 }
 
-// --------------------------------------------------------------------
-// Retrieve Font Weight -----------------------------------------------
-// Used in _mixins.scss [@mixin font-weight] --------------------------
-// --------------------------------------------------------------------
+/**
+ * Función: get-font-weight
+ * Obtiene el peso de fuente configurado
+ * 
+ * Uso: get-font-weight(semibold)
+ */
 @function get-font-weight($elem) {
 	@return map-get($font__weight, $elem);
 }
 
-// --------------------------------------------------------------------
-// Retrieve Padding of Content Area Elements --------------------------
-// Used in _mixins.scss [@mixin font-size] ----------------------------
-// --------------------------------------------------------------------
+/* ========================================================================
+   FUNCIONES DE CONTENEDOR Y PADDING
+======================================================================== */
+
+/**
+ * Función: get-content-padding
+ * Obtiene el padding del contenido según el tipo de pantalla
+ * 
+ * Uso: get-content-padding(mobile)
+ */
 @function get-content-padding($elem) {
 	@return map-get($content__padding, $elem);
 }
 
-// --------------------------------------------------------------------
-// Retrieve Colors ----------------------------------------------------
-// Usage: color(typography, 1) ----------------------------------------------
-// --------------------------------------------------------------------
+/* ========================================================================
+   FUNCIONES DE COLOR
+======================================================================== */
+
+/**
+ * Función: color
+ * Obtiene un color de la paleta configurada
+ * 
+ * Uso: color(primary, 1) - obtiene azul primario
+ *      color(typography, 2) - obtiene gris de texto
+ *      color(bg, 3) - obtiene color de fondo oscuro
+ */
 @function color($elem, $variant) {
 	@return map-get(map-get($color, $elem), $variant);
 }
