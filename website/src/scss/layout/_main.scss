@@ -1,0 +1,60 @@
+/* ========================================================================
+   LAYOUT PRINCIPAL (_MAIN.SCSS)
+   ========================================================================
+   Estilos generales del layout principal del sitio
+   
+   Estructura:
+   .is-boxed           → Contenedor con borde (box layout)
+   .body-wrap          → Envolvente principal del body
+   .boxed-container    → Contenedor máximo ancho
+   main                → Contenedor de contenido principal
+   .section-inner      → Espaciado interno de cada sección
+======================================================================== */
+
+/* Fondo del contenedor principal */
+.is-boxed {
+    background: color(bg, 3);
+}
+
+/* Envolvente principal - layout de sticky footer */
+.body-wrap {
+    background: color(bg, 2);
+    overflow: hidden;
+    /* Sticky footer - el main crece para llenar espacio disponible */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Contenedor con ancho máximo y sombra */
+.boxed-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    @include shadow;
+    mix-blend-mode: normal;
+}
+
+/* Contenido principal crece para llenar espacio disponible */
+main {
+    flex: 1 0 auto;
+}
+
+/* Espaciado interno de cada sección del sitio */
+.section-inner {
+    position: relative;
+    padding-top: 56px;
+    padding-bottom: 56px;
+    
+    /* Máximo ancho para lectura óptima */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Espaciado mayor en pantallas medianas y grandes */
+@include media( '>medium' ) {
+
+    .section-inner {
+        padding-top: 96px;
+        padding-bottom: 96px;
+    }
+}

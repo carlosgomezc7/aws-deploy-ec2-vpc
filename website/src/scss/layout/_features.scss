@@ -1,0 +1,96 @@
+/* ========================================================================
+   CARACTERÍSTICAS (_FEATURES.SCSS)
+   ========================================================================
+   Estilos para la sección de características (6 tarjetas de beneficios)
+   
+   Estructura:
+   .features-wrap     → Contenedor flex que agrupa todas las características
+   .feature           → Cada tarjeta individual de característica
+   .feature-inner     → Contenedor interno de la tarjeta
+   .feature-icon      → Área para el icono SVG
+======================================================================== */
+
+/* Contenedor principal que agrupa todas las características */
+.features-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 24px;
+    margin-right: -32px;
+    margin-left: -32px;
+
+    &:first-of-type {
+        margin-top: -16px;
+    }
+
+    &:last-of-type {
+        margin-bottom: -16px;
+    }
+}
+
+/* Tarjeta individual de característica */
+.feature {
+    padding: 32px;
+    width: 100%;
+    max-width: 400px;
+    flex-grow: 1;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Efecto hover para interactividad */
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(2, 112, 215, 0.1);
+    }
+}
+
+/* Contenedor interno mantiene altura completa */
+.feature-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Área de icono - centrada y con tamaño consistente */
+.feature-icon {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    margin: 0 auto 16px;
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Tamaños mayores en dispositivos medianos y grandes */
+@include media( '>medium' ) {
+
+    .features-wrap {
+        gap: 32px;
+        
+        &:first-of-type {
+            margin-top: -24px;
+        }
+
+        &:last-of-type {
+            margin-bottom: -24px;
+        }
+    }
+
+    .feature {
+        padding: 40px 32px;
+        max-width: 420px;
+    }
+    
+    .feature-icon {
+        height: 96px;
+        width: 96px;
+        margin-bottom: 20px;
+    }
+}

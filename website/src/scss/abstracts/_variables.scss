@@ -1,0 +1,114 @@
+/* ========================================================================
+   ARCHIVO DE VARIABLES GLOBALES (_VARIABLES.SCSS)
+   ========================================================================
+   
+   Propósito: Define todas las variables globales usadas en el proyecto.
+   
+   Variables incluidas:
+   - Colores: Paleta de colores principal (primario, tipografía, fondos)
+   - Tipografía: Familias de fuentes, tamaños y escalas de fuentes
+   - Tamaños: Espacios, anchos, alturas
+   - Breakpoints: Puntos de quiebre responsivos (mobile, tablet, desktop)
+   - Transiciones: Duraciones y timing functions para animaciones
+   
+   Cómo usar:
+   - color(primary, main)  → Obtiene color primario
+   - font-family(base)     → Obtiene familia de fuente base
+   - font-size(h1)         → Obtiene tamaño de H1
+   
+   Ventajas de centralizar variables:
+   - Un único lugar para cambiar la marca (colores, tipografía)
+   - Consistencia en todo el sitio
+   - Fácil de mantener y actualizar
+======================================================================== */
+
+// ========================================================================
+// COLORES
+// ========================================================================
+// Estructura: $color -> categoría -> número/nombre
+// Ejemplo: color(primary, main) accede a #0270D7
+// ========================================================================------------------------------------
+$color: (
+	typography: (
+		1: #FFFFFF,
+		2: #8A94A7,
+		3: #3B404C
+	),
+	bg: (
+		1: #15181D,
+		2: #1D2026,
+		3: #242830,
+		4: #2C3039
+	),
+	primary: (
+		1: #0270D7,
+		2: #0F8AFD,
+		3: #0256A4
+ 	)
+);
+
+// ========================================================================
+// TIPOGRAFÍA
+// ========================================================================
+// Define familias de fuentes, tamaños y escalas responsivas
+// ========================================================================
+// Familias de fuentes disponibles
+$font__family: (
+	base: '"IBM Plex Sans", sans-serif',        // Fuente principal para textos
+	heading: '"IBM Plex Sans", sans-serif',     // Fuente para encabezados
+	code: 'Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace', // Fuente para código
+	pre: '"Courier 10 Pitch", Courier, monospace' // Fuente para bloques pre
+);
+
+// Tamaños de fuente con line-height y letter-spacing
+// Formato: (tamaño, altura de línea, espaciado de letras)
+$font__sizes: (
+	alpha:   ( 44px, 54px, 0px ),    // Encabezados H1 - Muy grande
+	beta:    ( 38px, 48px, 0px ),    // Encabezados H2 - Grande
+	gamma:   ( 32px, 42px, 0px ),    // Encabezados H3 - Mediano grande
+	delta:   ( 24px, 34px, 0px ),    // Encabezados H4 - Mediano
+	epsilon: ( 20px, 30px, -0.1px ), // Encabezados H5 - Mediano pequeño
+	zeta:    ( 18px, 28px, -0.1px ), // Texto destacado
+	eta:     ( 16px, 24px, -0.1px ), // Texto normal
+	theta:   ( 14px, 22px, 0px )     // Texto pequeño
+);
+
+$font__scale: (
+	desktop: (                             // i.e. $breakpoint__m + $breakpoint__l (600 - 1024)
+		1: map-get($font__sizes, alpha),   // H1
+		2: map-get($font__sizes, beta),    // H2
+		3: map-get($font__sizes, gamma),   // H3
+		4: map-get($font__sizes, delta),   // H4, H5, H6
+		5: map-get($font__sizes, epsilon), // Body
+		6: map-get($font__sizes, zeta),    // Text small (e.g. faq's)
+		7: map-get($font__sizes, eta),     // Text smaller (e.g. pricing, testimonials)
+		8: map-get($font__sizes, theta)    // Footer area
+	),
+	mobile: (                              // i.e. $breakpoint__xs + $breakpoint__s (up to 600)
+		1: map-get($font__sizes, beta),    // H1
+		2: map-get($font__sizes, gamma),   // H2
+		3: map-get($font__sizes, delta),   // H3
+		4: map-get($font__sizes, epsilon), // H4, H5, H6
+		5: map-get($font__sizes, epsilon), // Body
+		6: map-get($font__sizes, zeta),    // Text small (e.g. faq's)
+		7: map-get($font__sizes, eta),     // Text smaller (e.g. pricing, testimonials)
+		8: map-get($font__sizes, theta)    // Footer area
+	)
+);
+
+$font__weight: (
+	regular: 400, 	// font__weight(regular)
+	medium: 500,	// font__weight(medium)
+	semibold: 600,	// font__weight(semi-bold)
+	bold: 700		// font__weight(bold)
+);
+
+// --------------------------------------------
+// Structure ----------------------------------
+// --------------------------------------------
+$content__padding: (
+	mobile: 16px,
+	desktop:  24px
+);
+$container__width: 1080px;
+$container__width-sm: 800px;
