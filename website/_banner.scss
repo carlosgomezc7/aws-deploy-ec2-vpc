@@ -1,0 +1,47 @@
+/* ========================================================================
+   BANNER SUPERIOR (_BANNER.SCSS)
+   ========================================================================
+   Estilos para el banner superior de soporte TI.
+   Un banner más compacto que la sección hero, pero con un mensaje claro.
+======================================================================== */
+
+.top-banner {
+    padding: 40px 0; // Ajustar padding para que sea más compacto que el hero
+    background-color: color(bg, 2); // Un color de fondo oscuro pero diferente al principal
+    text-align: center;
+    
+    .top-banner-inner {
+        max-width: 800px; // Ancho máximo para el contenido del banner
+        margin: 0 auto;
+    }
+
+    .top-banner-title {
+        @include font-size(2, mobile, true, true, true); // Usar escala de fuente para títulos
+        color: color(typography, 1); // Blanco
+        margin-bottom: 16px;
+    }
+
+    .top-banner-paragraph {
+        @include font-size(6, mobile, true, true, true); // Usar escala de fuente para párrafos
+        color: color(typography, 2); // Gris claro
+        margin-bottom: 24px;
+    }
+
+    .top-banner-cta {
+        .button {
+            margin: 0 8px; // Espacio entre botones si hubiera más de uno
+        }
+    }
+}
+
+@include media( '>medium' ) {
+    .top-banner {
+        padding: 60px 0; // Más padding en desktop
+        .top-banner-title {
+            @include font-size(1, desktop, true, true, true); // Título más grande en desktop
+        }
+        .top-banner-paragraph {
+            @include font-size(5, desktop, true, true, true); // Párrafo más grande en desktop
+        }
+    }
+}
